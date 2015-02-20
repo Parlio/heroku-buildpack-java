@@ -59,8 +59,8 @@ mvnOpts="${mvnOpts}${MAVEN_SETTINGS_OPT:+ $MAVEN_SETTINGS_OPT}"
 
 mvnPreOpts=$mvnOpts
 
-mvnPreOpts="${mvnOpts} ${MAVEN_CUSTOM_PRE_OPTS:-""}"
-mvnPreOpts="${mvnOpts} ${MAVEN_CUSTOM_PRE_GOALS:-""}"
+mvnPreOpts="${mvnPreOpts} ${MAVEN_CUSTOM_PRE_OPTS:-""}"
+mvnPreOpts="${mvnPreOpts} ${MAVEN_CUSTOM_PRE_GOALS:-""}"
 
 mvnOpts="${mvnOpts} ${MAVEN_CUSTOM_OPTS:-"-DskipTests=true"}"
 mvnOpts="${mvnOpts} ${MAVEN_CUSTOM_GOALS:-"clean install"}"
