@@ -56,8 +56,17 @@ export MAVEN_OPTS="-Xmx1024m -Duser.home=$BUILD_DIR -Dmaven.repo.local=$CACHE_DI
 # build app
 mvnOpts="-B -Dfile.encoding=UTF-8"
 mvnOpts="${mvnOpts}${MAVEN_SETTINGS_OPT:+ $MAVEN_SETTINGS_OPT}"
+
+mvnPreOpts=$mvnOpts
+
+mvnPreOpts="${mvnOpts} ${MAVEN_CUSTOM_PRE_OPTS:-""}"
+mvnPreOpts="${mvnOpts} ${MAVEN_CUSTOM_PRE_GOALS:-""}"
+
 mvnOpts="${mvnOpts} ${MAVEN_CUSTOM_OPTS:-"-DskipTests=true"}"
 mvnOpts="${mvnOpts} ${MAVEN_CUSTOM_GOALS:-"clean install"}"
+
+status "Executing: mvn ${mvnPreOpts}"
+$CACHE_DIR/.maven/bin/mvn ${mvnPreOpts} | indent
 
 status "Executing: mvn ${mvnOpts}"
 $CACHE_DIR/.maven/bin/mvn ${mvnOpts} | indent
