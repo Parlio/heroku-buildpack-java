@@ -71,7 +71,7 @@ cat pom.xml
 
 status "Executing: PRE_CMDS"
 echo $PRE_CMDS
-$($PRE_CMDS)
+$PRE_CMDS
 
 status "Executing: mvn ${mvnPreOpts}"
 $CACHE_DIR/.maven/bin/mvn ${mvnPreOpts} | indent
