@@ -70,7 +70,7 @@ echo "POM before changes:"
 cat pom.xml
 
 status "Executing: PRE_CMDS"
-${preCmds}
+${PRE_CMDS}
 
 ##perl -p -i -e 's/<artifactId>CommonDAO<\/artifactId>/<artifactId>CommonDAO-master<\/artifactId>/g' pom.xml
 ##perl -p -i -e 's/<version>1.0.0-SNAPSHOT<\/version>/<version>1.0.0<\/version>/g' pom.xml
