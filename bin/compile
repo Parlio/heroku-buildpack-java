@@ -67,6 +67,7 @@ mvnOpts="${mvnOpts} ${MAVEN_CUSTOM_GOALS:-"clean install"}"
 
 status "Executing: PRE_CMDS"
 echo $PRE_CMDS
+cat pom.xml
 $PRE_CMDS
 
 
