@@ -65,14 +65,19 @@ mvnPreOpts="${mvnPreOpts} ${MAVEN_CUSTOM_PRE_GOALS:-""}"
 mvnOpts="${mvnOpts} ${MAVEN_CUSTOM_OPTS:-"-DskipTests=true"}"
 mvnOpts="${mvnOpts} ${MAVEN_CUSTOM_GOALS:-"clean install"}"
 
+
+echo "POM before changes:"
+cat pom.xml
+
 status "Executing: PRE_CMDS"
 echo $PRE_CMDS
-cat pom.xml
-$PRE_CMDS
-
+$($PRE_CMDS)
 
 status "Executing: mvn ${mvnPreOpts}"
 $CACHE_DIR/.maven/bin/mvn ${mvnPreOpts} | indent
+
+echo "POM after changes"
+cat pom.xml
 
 status "Executing: mvn ${mvnOpts}"
 $CACHE_DIR/.maven/bin/mvn ${mvnOpts} | indent
