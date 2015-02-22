@@ -65,6 +65,9 @@ mvnPreOpts="${mvnPreOpts} ${MAVEN_CUSTOM_PRE_GOALS:-""}"
 mvnOpts="${mvnOpts} ${MAVEN_CUSTOM_OPTS:-"-DskipTests=true"}"
 mvnOpts="${mvnOpts} ${MAVEN_CUSTOM_GOALS:-"clean install"}"
 
+status "Executing: perl --version"
+perl --version
+
 status "Executing: mvn ${mvnPreOpts}"
 $CACHE_DIR/.maven/bin/mvn ${mvnPreOpts} | indent
 
