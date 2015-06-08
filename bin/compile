@@ -61,6 +61,7 @@ mvnOpts="${mvnOpts} ${MAVEN_CUSTOM_GOALS:-"clean install"}"
 
 
 status "Changing common dao strings"
+rm -rf $CACHE_DIR/.m2/repository/com/bite/common
 perl -p -i -e 's/<artifactId>CommonDAO<\/artifactId>/<artifactId>CommonDAO-release<\/artifactId>/g' pom.xml
 perl -p -i -e 's/<version>1.0.0-SNAPSHOT<\/version>/<version>1.0.0<\/version>/g' pom.xml
 $CACHE_DIR/.maven/bin/mvn ${MAVEN_SETTINGS_OPT:+ $MAVEN_SETTINGS_OPT} versions:use-latest-releases -Dincludes=com.bite.common | indent
